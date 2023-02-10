@@ -1,20 +1,55 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import SiswaCrud from '../views/SiswaCrud.vue'
+import SppCrud from '../views/SppCrud.vue'
+import PetugasCrud from '../views/PetugasCrud.vue'
+import KelasCrud from '../views/KelasCrud.vue'
+import DashboardPage from '../views/DashboardPage.vue'
+import PembayaranPage from '../views/PembayaranPage.vue'
+import HistoryPage from '../views/HistoryPage.vue'
+import LaporanPage from '../views/LaporanPage.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'dashboardpage',
+    component: DashboardPage
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/crud/siswa',
+    name: 'siswacrud',
+    component: SiswaCrud
+  },
+  {
+    path: '/crud/spp',
+    name: 'sppcrud',
+    component: SppCrud
+  },
+  {
+    path: '/crud/petugas',
+    name: 'petugascrud',
+    component: PetugasCrud
+  },
+  {
+    path: '/crud/kelas',
+    name: 'kelascrud',
+    component: KelasCrud
+  },
+  {
+    path: '/pembayaran/:id',
+    name: 'pembayaran',
+    component: PembayaranPage
+  },
+  {
+    path: '/histori',
+    name: 'histori',
+    component: HistoryPage
+  },
+  {
+    path: '/laporan',
+    name: 'laporan',
+    component: LaporanPage
+  },
+  
 ]
 
 const router = createRouter({
