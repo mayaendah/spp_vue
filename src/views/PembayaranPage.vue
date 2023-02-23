@@ -185,10 +185,26 @@ const jurusan = ref("");
 const tahunbayar = ref("");
 const tglBayar = ref("");
 
-tglBayar.value=new Date().toLocaleString();
+
+var today = new Date();
+// var dd = today.getDate();
+// var mm = today.getMonth() + 1;
+
+var yyyy = today.getFullYear();
+  // if (dd < 10) {
+  //   dd = '0' + dd;
+  // }
+  // if (mm < 10) {
+  //   mm = '0' + mm;
+  // }
+  // var today = dd + '/' + mm + '/' + yyyy;
+
+tglBayar.value=today.toLocaleString();
 let tgl=tglBayar.value;console.log(tgl);
 
-tahunbayar.value=tgl.substring(6,10);console.log(tahunbayar.value);
+tahunbayar.value=yyyy;
+
+// tahunbayar.value=tgl.substring(5,9);console.log(tahunbayar.value);
 
 
 //kode otomatis untuk kode bayar
@@ -299,9 +315,9 @@ const bayar = async (id) => {
               formData.append("id_siswa", id_siswa.value);
               formData.append("tgl_bayar", tglBayar.value);
               formData.append("id_bulan", id);
-              formData.append("tahun_bayar", tahunbayar.value);
+              formData.append("thn_bayar", tahunbayar.value);
               formData.append("id_spp", dataSiswas.value[0].id_spp);
-              formData.append("totalDibayar", totalBayar.value);
+              formData.append("jumlah_bayar", totalBayar.value);
               for (const value of formData.values()) {
                 console.log(value);
               }
